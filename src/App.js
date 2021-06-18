@@ -64,6 +64,14 @@ class App extends Component {
         hottestItem = item;
       }
     });
+    let Page = null;
+    if (this.state.currentPage == "Landing") {
+      Page = <Landing user={this.state.user} item={hottestItem} />;
+    } else {
+      if (this.state.currentPage == "Home") {
+        Page = <Home store={this.state.store} />;
+      }
+    }
     return (
       <div>
         <div className="ex-space">
@@ -140,7 +148,7 @@ class App extends Component {
         <div className="ex-space">
           <h4 className="ex-title">Exercise 3</h4>
           <div className="exercise" id="ex-3">
-            {/* your code here */}
+            {Page}
           </div>
         </div>
 
