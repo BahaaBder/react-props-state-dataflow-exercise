@@ -64,6 +64,7 @@ class App extends Component {
         hottestItem = item;
       }
     });
+    //------------------
     let Page = null;
     if (this.state.currentPage == "Landing") {
       Page = <Landing user={this.state.user} item={hottestItem} />;
@@ -72,6 +73,15 @@ class App extends Component {
         Page = <Home store={this.state.store} />;
       }
     }
+    //---------------------
+    if (this.state.shouldDiscount) {
+      this.state.store.map(
+        (item) => (item.price = item.price * (1 - item.discount))
+      );
+    } else {
+      (item) => (item.price = item.price / (1 - item.discount));
+    }
+    //--------------------------------------------
     return (
       <div>
         <div className="ex-space">
@@ -155,7 +165,7 @@ class App extends Component {
         <div className="ex-space">
           <h4 className="ex-title">Exercise 4</h4>
           <div className="exercise" id="ex-4">
-            {/* your code here */}
+            <Home store={this.state.store} />
           </div>
         </div>
       </div>
