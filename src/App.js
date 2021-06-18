@@ -58,7 +58,12 @@ class App extends Component {
       { name: "Microsoft", revenue: 300 },
       { name: "Google", revenue: 600 },
     ];
-
+    let hottestItem = {};
+    this.state.store.forEach((item) => {
+      if (item.hottest == true) {
+        hottestItem = item;
+      }
+    });
     return (
       <div>
         <div className="ex-space">
@@ -127,7 +132,7 @@ class App extends Component {
         <div className="ex-space">
           <h4 className="ex-title">Exercise 2</h4>
           <div className="exercise" id="ex-2">
-            {/* <Landing /> */}
+            <Landing user={this.state.user} item={hottestItem} />
             <Home store={this.state.store} />
           </div>
         </div>
