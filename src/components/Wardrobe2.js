@@ -1,5 +1,5 @@
 import Article from "./Article";
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Wardrobe2 extends Component {
   render() {
@@ -9,12 +9,18 @@ class Wardrobe2 extends Component {
       { type: "pants", color: "blue", size: "Medium" },
       { type: "accessory", color: "sapphire", size: "" },
       { type: "accessory", color: "lilac", size: "" },
-    ]
+    ];
 
-    return
-    {/* your code here */ }
-
+    return (
+      <div>
+        {wardrobe
+          .filter((c) => c.color == "blue")
+          .map((c) => (
+            <Article info={c} key={c.color + c.type} />
+          ))}
+      </div>
+    );
   }
 }
 
-export default Wardrobe2
+export default Wardrobe2;

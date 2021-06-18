@@ -1,5 +1,5 @@
 import Article from "./Article";
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Wardrobe extends Component {
   render() {
@@ -9,11 +9,16 @@ class Wardrobe extends Component {
       { type: "pants", color: "blue", size: "Medium" },
       { type: "accessory", color: "sapphire", size: "" },
       { type: "accessory", color: "lilac", size: "" },
-    ]
+    ];
 
-    return {/* your code here */ }
-
+    return (
+      <div>
+        {wardrobe.map((w) => (
+          <Article info={w} key={w.color + w.type} />
+        ))}
+      </div>
+    );
   }
 }
 
-export default Wardrobe
+export default Wardrobe;

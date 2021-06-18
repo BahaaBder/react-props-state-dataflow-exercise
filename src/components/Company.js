@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
-import SubCompany from './SubCompany'
+import React, { Component } from "react";
+import SubCompany from "./SubCompany";
 
 class Company extends Component {
   render() {
-    return {/* your code here */ }
-
+    return (
+      <div>
+        <SubCompany name={this.props.name} revenue={this.props.revenue} />
+      </div>
+    );
   }
 }
 
-export default Company
+export default Company;
